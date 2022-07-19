@@ -17,7 +17,7 @@ let prouducto_comprado = JSON.parse(sessionStorage.getItem("Carrito de compras")
 //Se imprimen elementos en el carrito de compra final
         for (let prouducto_comprado of carrito_compras){
 
-        m = m+1; //Contador de elementos en carrito
+        m = m++; //Contador de elementos en carrito
 
         lista_compras = document.getElementById("carrito_interior");
         elemento_compra= document.createElement("tr");

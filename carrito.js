@@ -79,8 +79,7 @@ if(cantidad != 0){
         // Se crea producto en carro
 
         let id = carrito_compras.length;
-        let nombre_producto = nombre.nombre_producto;
-        let valor_producto = nombre.valor_producto;
+        let {nombre_producto, valor_producto} = nombre; //Operador avanzado desestructuración
         let cantidad_comprar = cantidad;
         let total_producto = valor_producto * cantidad_comprar;
 
@@ -107,7 +106,7 @@ if(cantidad != 0){
 
         for (let prouducto_comprado of carrito_compras){
 
-        m = m+1; //Contador de elementos en carrito
+        m = m++; //Contador de elementos en carrito
 
         lista_compras = document.getElementById("carrito_interior");
         elemento_compra= document.createElement("tr");
@@ -176,7 +175,7 @@ if(cantidad != 0){
 
             for (let prouducto_comprado of carrito_compras){
     
-            m = m+1; //Contador de elementos en carrito
+            m = m++; //Contador de elementos en carrito
     
             lista_compras = document.getElementById("carrito_interior");
             elemento_compra= document.createElement("tr");
@@ -240,9 +239,8 @@ if(cantidad != 0){
 
             // Se guarda carro de compras final y monto total en session storage para ser usado en checkout
     
-            if(checkout == 0){
-            sessionStorage.setItem('Monto total',monto);
-            sessionStorage.setItem('Carrito de compras',JSON.stringify(carrito_compras));}
+            checkout === 0 && sessionStorage.setItem('Monto total',monto); //Operador avanzado lógico AND
+            checkout === 0 && sessionStorage.setItem('Carrito de compras',JSON.stringify(carrito_compras));
           
              }
              }
