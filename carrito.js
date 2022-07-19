@@ -106,7 +106,7 @@ if(cantidad != 0){
 
         for (let prouducto_comprado of carrito_compras){
 
-        m = m++; //Contador de elementos en carrito
+        m++; //Contador de elementos en carrito
 
         lista_compras = document.getElementById("carrito_interior");
         elemento_compra= document.createElement("tr");
@@ -175,7 +175,7 @@ if(cantidad != 0){
 
             for (let prouducto_comprado of carrito_compras){
     
-            m = m++; //Contador de elementos en carrito
+            m++; //Contador de elementos en carrito
     
             lista_compras = document.getElementById("carrito_interior");
             elemento_compra= document.createElement("tr");
