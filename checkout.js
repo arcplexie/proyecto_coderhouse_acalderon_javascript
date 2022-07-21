@@ -1,5 +1,6 @@
 // Resumen y finalización de compra
 
+
 // Data traida desde el session storage
 
 let monto = sessionStorage.getItem('Monto total');
@@ -47,4 +48,29 @@ let prouducto_comprado = JSON.parse(sessionStorage.getItem("Carrito de compras")
         elemento_iva.innerHTML = `<td> El total de su compra con IVA es</td>
                                     <td> ${monto*1.21} $</td>`;
         monto_iva.appendChild(elemento_iva);
+
+// Se cierra compra SweetAlert
+
+
+let check = document.getElementById("check");
+check.addEventListener("click",cierre);
+
+
+
+function cierre(e){
+        check = e.button;
+
+        if (check == 0){
+
+                Swal.fire({
+                        icon: 'success',
+                        title: 'Muchas gracias',
+                        text: 'Su compra fue exitosa',
+                        footer: '<a href="index.html">Desea realizar una nueva compra?</a>'
+                      })
+
+        } 
+}
+
+
 

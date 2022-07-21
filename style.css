@@ -121,12 +121,17 @@
         background-color: white;
     }
 
-    form h3{
+    form .btn{
         background-color: rgb(3, 58, 15) ;
         color: white;
         padding: 15px;
         border-radius: 10px;
         text-align: center;
+    }
+
+    form .btn .end{
+        text-decoration: none;
+        color: white;
     }
 
     .resumen {
