@@ -1,4 +1,5 @@
-
+let lista;
+let lista_productos = [];
 
 
 
@@ -15,16 +16,34 @@ class Comprar{
     }
 }
 
-// Carrito de compras con todos los productos
-
-let carrito_compras = [];
+class listado{
+    constructor(nombre_producto, valor_producto){
+        this.nombre_producto = nombre_producto;
+        this.valor_producto = valor_producto;
+    }
+}
 
 //Información de Productos
 
-let lista_productos = [
-    {nombre_producto: "maní", valor_producto: 500}, {nombre_producto: "nueces", valor_producto: 800},
-    {nombre_producto: "pistachos", valor_producto: 700}, {nombre_producto: "avena", valor_producto: 300}
-];
+fetch("productos.json") //Uso de Fetch para traer una lista de productos desde un archivo JSON 
+
+.then(response => response.json())
+.then(productos =>{ lista = productos;
+
+    let k = 0;
+
+    for(k; k < lista.length; k++) {
+    
+        let nombre_producto = lista[k].nombre;
+        let valor_producto = lista[k].precio;
+        let creacion_producto = new listado(nombre_producto,valor_producto);
+        lista_productos.push(creacion_producto);
+    
+    }
+
+// Carrito de compras con todos los productos
+
+let carrito_compras = [];
 
 //Información de presentaciones - Cantidades
 
@@ -250,7 +269,7 @@ if(cantidad != 0){
 
          }
         
-   }
+   }})
 
         
      
