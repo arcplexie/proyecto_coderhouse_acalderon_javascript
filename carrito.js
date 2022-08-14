@@ -1,5 +1,6 @@
 let lista;
 let lista_productos = [];
+let monto;
 
 
 
@@ -65,7 +66,7 @@ for(i; i<lista_productos.length; i++){
  
             
 let seleccion_producto = 0;
-let monto = 0;
+monto = 0;
 
 function seleccionar(e){
 
@@ -144,6 +145,28 @@ if(cantidad != 0){
 
         let total = document.getElementById("total");
         total.innerHTML =`<h4 class="total" id="total">El total a pagar por su compra es: ${monto} $</h4>`;
+
+        if (monto > 0){
+
+            //Redirección a pagina de checkout
+
+            let redirect = document.getElementById("end");
+            redirect.innerHTML =`<a href="checkout.html"> Finalizar la Compra </a>`;
+            
+
+            let checkout = document.getElementById("end");
+            checkout.addEventListener("click",probar);
+            
+            function probar(e){
+            checkout=e.button;
+
+            // Se guarda carro de compras final y monto total en session storage para ser usado en checkout
+    
+            checkout === 0 && sessionStorage.setItem('Monto total',monto); //Operador avanzado lógico AND
+            checkout === 0 && sessionStorage.setItem('Carrito de compras',JSON.stringify(carrito_compras));
+          
+             }
+             }
 
         
 
@@ -237,7 +260,7 @@ if(cantidad != 0){
            }
 
 
-          }
+          
 
             // proceso de checkout transferencia a página de toma de datos
         
@@ -263,6 +286,14 @@ if(cantidad != 0){
           
              }
              }
+
+            else  {
+
+                let redirect = document.getElementById("end");
+                redirect.innerHTML =`<a href="#"> Finalizar la Compra </a>`;
+
+             }
+            }
 
 
 
